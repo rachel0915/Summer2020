@@ -11,29 +11,15 @@ public class Receipt {
         double subtotal = price1+price2+price3;
         final double tax = 0.08;
         final double tip = 0.15;
-        final double total = subtotal + subtotal*tax + subtotal*tip;
+        double total = subtotal + subtotal*tax + subtotal*tip;
+        double finalTax = subtotal*tax;
+        double finalTip = subtotal*tip;
 
 
-        System.out.println("Subtotal:");
-
-        System.out.println(38 + 40 + 30);
-
-        System.out.println("Tax:");
-
-        System.out.println((38 + 40 + 30) * .08);
-
-        System.out.println("Tip:");
-
-        System.out.println((38 + 40 + 30) * .15);
-
-        System.out.println("Total:");
-
-        System.out.println(38 + 40 + 30 +
-
-                (38 + 40 + 30) * .15 +
-
-                (38 + 40 + 30) * .08);
-
+        System.out.println("Subtotal:" + subtotal);
+        System.out.println("Tax:" + finalTax);
+        System.out.println("Tip:" + finalTip);
+        System.out.println("Total:" + total);
     }
 
 }
