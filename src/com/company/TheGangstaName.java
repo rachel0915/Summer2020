@@ -18,7 +18,9 @@ Print variable + ". Diddy" + last name in uppercase + first name + -izzle
 public class TheGangstaName {
 
     public static void main(String[] args){ //MAIN FUNCTION
-        String fullName = "Rachel Wegener";
+        Scanner keyboard = new Scanner (System.in);
+        System.out.print("Type your name, playa: ");
+        String fullName = keyboard.nextLine();
         System.out.print("Your gangsta name is ");
         initial(fullName);
         System.out.print(". Diddy");
@@ -29,11 +31,13 @@ public class TheGangstaName {
 
 
     public static void initial(String fullName ){ //SUB FUNCTION
+        Scanner keyboard = new Scanner (System.in);
         char letter = fullName.charAt(0);
         System.out.print(letter);
     }
 
     public static void firstName(String fullName){
+        Scanner keyboard = new Scanner (System.in);
         int indexOfSpace = fullName.indexOf(" ");
         String firstName = fullName.substring(0, indexOfSpace);
         System.out.print(" " + firstName);
@@ -41,6 +45,7 @@ public class TheGangstaName {
 
     }
     public static void lastName(String fullName){
+        Scanner keyboard = new Scanner (System.in);
         int indexOfSpace = fullName.indexOf(" ");
         if (indexOfSpace > 0){
             String lastName = fullName.substring(indexOfSpace);
