@@ -15,6 +15,7 @@ public class June11Classwork {
         int indexOf = message.indexOf(" ");
         String firstWord = message.substring(0, indexOf + 1);
         // message = message - firstWord
+        //String remainder = message.substring(indexOf+1);
         char letter;
         int count = 0;
         for (int index = 0; index < firstWord.length(); index++) {
