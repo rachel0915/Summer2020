@@ -29,7 +29,7 @@ Print letter and count (if not true)*/
         System.out.print("Type your message: ");
         String message = userPhrase.nextLine();
         firstWord(message);
-        //remainder code
+
 
     }
 
