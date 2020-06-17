@@ -19,16 +19,18 @@ printf using .1 for scale
         double d = 4.0;
         String s = "Greenhill ";
 
+        System.out.print("Type your sentence: ");
+        String input3 = input.nextLine();
+        String sentence = s + input3;
         System.out.print("Type your integer: ");
         int input1 = input.nextInt();
         int finalInteger = i + input1;
         System.out.print("Type your double: ");
         double input2 = input.nextDouble();
         double finalDouble = d + input2;
-        System.out.print("Type your sentence: ");
-        String input3 = input.nextLine(); //it will not let me enter input here for some reason
-        String sentence = s + input3;
-        System.out.printf("\n Your output is:\n %1d \n %1.1f \n %5s", finalInteger,finalDouble, sentence);
+
+
+        System.out.printf("\n %1d \n %1.1f \n %5s", finalInteger,finalDouble, sentence);
 
     }
 
