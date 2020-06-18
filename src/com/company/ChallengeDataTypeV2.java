@@ -26,12 +26,12 @@ printf using .1 for scale
 
 
     }
-    public static void integer(){
+    public static void integer() {
         int i = 4;
         System.out.print("Type your integer: ");
         int input1 = input.nextInt();
         int finalInteger = i + input1;
-        System.out.printf("%2d \n", finalInteger );
+        System.out.printf("%2d \n", finalInteger);
     }
     public static void Double(){
         double d = 4.0;
