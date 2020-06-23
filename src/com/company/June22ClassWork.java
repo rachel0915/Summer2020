@@ -9,7 +9,10 @@ create array for number of days
 create new random bound between 25-110
 create for loop bound by length of array
     print random value for each day
-
+create double variable for average found by dividing sum of randoms by number of days and print
+create for loop bound by number of days
+if array is greater than average, add to int count
+print count
  */
 
 
