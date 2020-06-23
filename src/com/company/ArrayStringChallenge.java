@@ -30,7 +30,7 @@ public class ArrayStringChallenge {
         String stringInput = null;
         String receiveWord;
         String[] stringArray1 = new String[numOfStrings];
-        String[] stringArray2 = new String[numOfStrings*2];
+        String[] stringArray2 = new String[numOfStrings];
         do {
             int loop;
             for (loop = 0; loop < numOfStrings; loop++) { //for loop controlled by int value
@@ -39,8 +39,9 @@ public class ArrayStringChallenge {
                 stringArray1[loop] = stringInput;
                 receiveWord = output(stringInput); //returns from method
                 stringArray2[loop] = receiveWord;
+
             }
-            System.out.println(stringArray2[loop]);
+            System.out.println(Arrays.toString(stringArray2));
         }while(stringInput.length() <= 1 || stringInput.length() >= 10000);
     }
 
