@@ -12,6 +12,8 @@ find even and odd indexes
     create for loop for odd
 return even and odd strings to main void
 println even and odd indexes together separated by a space
+create array for number of strings inputted
+create array for output and print
 
  */
 public class ArrayStringChallenge {
