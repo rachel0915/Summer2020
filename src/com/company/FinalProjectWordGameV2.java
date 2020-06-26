@@ -40,7 +40,7 @@ public class FinalProjectWordGameV2 {
         String answer;
         int countWins=0;
         Welcome();
-        do {
+        do { //do loop for game to be repeated
             Scanner fileScan = new Scanner(file);
             System.out.println("Do you want to play places or numbers?");
             game = userInput.next();
@@ -60,7 +60,7 @@ public class FinalProjectWordGameV2 {
                 }
             }
             else{
-                System.out.println("Enter a state or country:");
+                System.out.println("Enter a state or country (capitalize each word, no spaces):");
                 String states = userInput.next();
                 countWins = gameWords(states, fileScan, countWins);
             }
@@ -69,12 +69,22 @@ public class FinalProjectWordGameV2 {
             answer = userInput.next();
             fileScan.close();
         }while(answer.contains("y") || answer.contains("Y"));
-        System.out.println("Total games won: "+countWins);
-        System.out.println("Total games played: "+countAttempts);
-
+        for(int dash = 1; dash <27; dash++){ //creates end screen when user quits
+            System.out.print("-");
+        }
+        System.out.println(" ");
+        System.out.print("|");
+        System.out.print("Total games won: "+countWins);
+        System.out.println("      |");
+        System.out.print("|");
+        System.out.print("Total games played: "+countAttempts);
+        System.out.println("   |");
+        for(int dash = 1; dash <27; dash++){
+            System.out.print("-");
+        }
     }
 
-    public static int gameWords (String states, Scanner fileScan, int countWins) {
+    public static int gameWords (String states, Scanner fileScan, int countWins) { //returns win count for word game
         while (fileScan.hasNext()) {
             if (fileScan.next().equals(states)) {
                 countWins++;
@@ -85,7 +95,7 @@ public class FinalProjectWordGameV2 {
         return countWins;
     }
 
-    public static int gameInteger (int intGuess, Scanner fileScan, int countWins){
+    public static int gameInteger (int intGuess, Scanner fileScan, int countWins){ //returns win count for integer game
         while (fileScan.hasNext()) {
             if (fileScan.hasNextInt()) {
                 if (fileScan.nextInt() == intGuess) {
@@ -98,7 +108,7 @@ public class FinalProjectWordGameV2 {
         return countWins;
     }
 
-    public static int gameDouble (double doubleGuess, Scanner fileScan, int countWins){
+    public static int gameDouble (double doubleGuess, Scanner fileScan, int countWins){ //returns win count for double game
         while (fileScan.hasNext()) {
             if (fileScan.hasNextDouble()){
                 if (fileScan.nextDouble() == (doubleGuess)) {
@@ -111,7 +121,7 @@ public class FinalProjectWordGameV2 {
         return countWins;
     }
 
-    public static void Welcome(){
+    public static void Welcome(){ //creates welcome screen at beginning
         for(int star = 1; star <24; star++){
             System.out.print("*");
         }
@@ -133,5 +143,7 @@ public class FinalProjectWordGameV2 {
         System.out.println(" ");
 
     } //end welcome void
+
+
 
 } //end program
