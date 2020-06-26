@@ -1,28 +1,28 @@
 /*
-PSEUDOCODE
+PSEUDOCODE RACHEL WEGENER
 import java.io.*;
 import java.util.*
 create welcome screen using new public static void
-    create pattern using for loop(?)
+    create pattern using for loop
 create new File
 create new Scanner to read File
 create new Scanner to read user input
 Ask user to guess either a number or word
     If answer word, go to return method
-    Ask user to guess a state in the country
+    Ask user to guess a state or country
         If correct, add to correct count and to playing count and return back
         If incorrect, add only to playing count and return back
     If answer number, ask whether integer (easy) or double (hard)
-    If integer, ask to guess between 1-30 inclusive
+    If integer, ask to guess between 1-100 inclusive
         If correct, add to correct count and to playing count and return back
         If incorrect, add only to playing count and return back
-    If double, ask to guess between 2.0 and 15.0 inclusive
+    If double, ask to guess between 1.0 and 100.0 inclusive
         If correct, add to correct count and to playing count and return back
         If incorrect, add only to playing count and return back
-Ask user if they want to quit after each guess
-    If yes, go to end screen
+Ask user if they want to continue after each guess
+    If yes, return to start
+    If no, go to end screen
         Display correct count and playing count
-    If no, return to start
  */
 
 package com.company;
