@@ -28,13 +28,12 @@ Ask user if they want to quit after each guess
 package com.company;
 import java.io.*;
 import java.util.*;
-public class FinalProjectWordGame {
+public class FinalProjectWordGameV2 {
     public static int countAttempts=0;
 
     public static void main(String[] args) throws FileNotFoundException
     {
         File file = new File("/Users/rachelwegener/IdeaProjects/Summer2020/src/com/company/finalProject.txt");
-        Scanner fileScan = new Scanner(file);
         Scanner userInput = new Scanner(System.in);
         String game;
         String numberGame;
@@ -42,94 +41,75 @@ public class FinalProjectWordGame {
         int countWins=0;
         Welcome();
         do {
-            System.out.println("Do you want to guess words or numbers?");
+            Scanner fileScan = new Scanner(file);
+            System.out.println("Do you want to play places or numbers?");
             game = userInput.next();
-            if(game.contains("ords")){
-                System.out.println("Enter a country or U.S state (capitalize each word and do not use spaces)");
-                String states = userInput.next();
-                countWins = gameWords(states, fileScan, countWins);
-                System.out.println("Total games won: "+countWins);
-                System.out.println("Total games played: "+countAttempts);
-            }
-            if(game.contains("umber")){
+            if(game.contains("n") || game.contains("N")){
                 System.out.println("Do you want to play integers (easy) or doubles (hard)?");
                 numberGame = userInput.next();
-                if(numberGame.contains("nteger")){
-                    System.out.println("Guess an integer between 1 amd 100 inclusive");
+                if(numberGame.contains("i") || numberGame.contains("I")){
+                    System.out.println("Guess an integer between 1-100 inclusive");
                     int intGuess = userInput.nextInt();
                     countWins = gameInteger(intGuess, fileScan, countWins);
-                    System.out.println("Total games won: "+countWins);
-                    System.out.println("Total games played: "+countAttempts);
                 }
-                if(numberGame.contains("ouble")) {
+                else {
                     System.out.println("Guess an double between 1.0 and 100.0 inclusive");
                     double doubleGuess = userInput.nextDouble();
                     doubleGuess = (((int)(doubleGuess*100))/100.0);
                     countWins = gameDouble(doubleGuess, fileScan, countWins);
-                    System.out.println("Total games won: "+countWins);
-                    System.out.println("Total games played: "+countAttempts);
                 }
+            }
+            else{
+                System.out.println("Enter a state or country:");
+                String states = userInput.next();
+                countWins = gameWords(states, fileScan, countWins);
             }
 
             System.out.println("Do you want to play again?");
             answer = userInput.next();
-        }while(answer.contains("es"));
+            fileScan.close();
+        }while(answer.contains("y") || answer.contains("Y"));
         System.out.println("Total games won: "+countWins);
         System.out.println("Total games played: "+countAttempts);
 
-        fileScan.close();
-    } //end main
+    }
 
     public static int gameWords (String states, Scanner fileScan, int countWins) {
-        while (fileScan.hasNextLine()) {
-            if (fileScan.hasNext()) {
-                if (fileScan.next().equals(states)) {
-                    System.out.println("Correct!");
-                    countWins++;
-                    break;
-                }
-            }
-            else {
-                String trash = fileScan.next();
+        while (fileScan.hasNext()) {
+            if (fileScan.next().equals(states)) {
+                countWins++;
+                break;
             }
         }
         countAttempts++;
         return countWins;
-    } //end
+    }
 
     public static int gameInteger (int intGuess, Scanner fileScan, int countWins){
-        while (fileScan.hasNextLine()) {
+        while (fileScan.hasNext()) {
             if (fileScan.hasNextInt()) {
-                if (fileScan.nextInt() == (intGuess)) {
-                    System.out.println("Correct!");
+                if (fileScan.nextInt() == intGuess) {
                     countWins++;
                     break;
                 }
-            }
-            else {
-                    String trash = fileScan.next();
-            }
+            } else fileScan.next();
         }
         countAttempts++;
         return countWins;
-    } //end
+    }
 
     public static int gameDouble (double doubleGuess, Scanner fileScan, int countWins){
-        while (fileScan.hasNextLine()) {
-            if (fileScan.hasNextDouble()) {
+        while (fileScan.hasNext()) {
+            if (fileScan.hasNextDouble()){
                 if (fileScan.nextDouble() == (doubleGuess)) {
-                    System.out.println("Correct!");
                     countWins++;
                     break;
                 }
-            }
-            else {
-                String trash = fileScan.next();
-            }
+            }else fileScan.next();
         }
         countAttempts++;
         return countWins;
-    } //end
+    }
 
     public static void Welcome(){
         for(int star = 1; star <24; star++){
