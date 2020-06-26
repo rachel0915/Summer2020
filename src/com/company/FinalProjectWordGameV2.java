@@ -87,6 +87,7 @@ public class FinalProjectWordGameV2 {
     public static int gameWords (String states, Scanner fileScan, int countWins) { //returns win count for word game
         while (fileScan.hasNext()) {
             if (fileScan.next().equals(states)) {
+                System.out.println("Correct!");
                 countWins++;
                 break;
             }
@@ -99,6 +100,7 @@ public class FinalProjectWordGameV2 {
         while (fileScan.hasNext()) {
             if (fileScan.hasNextInt()) {
                 if (fileScan.nextInt() == intGuess) {
+                    System.out.println("Correct!");
                     countWins++;
                     break;
                 }
@@ -112,6 +114,7 @@ public class FinalProjectWordGameV2 {
         while (fileScan.hasNext()) {
             if (fileScan.hasNextDouble()){
                 if (fileScan.nextDouble() == (doubleGuess)) {
+                    System.out.println("Correct!");
                     countWins++;
                     break;
                 }
